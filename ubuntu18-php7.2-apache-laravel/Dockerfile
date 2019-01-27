@@ -47,6 +47,15 @@ RUN apt-get install -yq --no-install-recommends ca-certificates \
 # Definir localizações
 RUN locale-gen pt_BR.UTF-8 en_US.UTF-8 en_GB.UTF-8 de_DE.UTF-8 es_ES.UTF-8 fr_FR.UTF-8 it_IT.UTF-8 km_KH sv_SE.UTF-8 fi_FI.UTF-8
 RUN a2enmod rewrite expires
+# configuração apache
+RUN chmod +x /etc/apache2/sites-available/000-default.conf \
+&& printf "<virtualhost *:80>\n" >> /etc/apache2/sites-available/000-default.conf \
+&& printf "\n\tserveradmin webmaster@localhost\n\tdocumentroot /var/www/html\n" >> /etc/apache2/sites-available/000-default.conf \
+&& printf "\n\t<directory “/var/www/html”>\n\t\tallowoverride all\n\t</directory>\n" >> /etc/apache2/sites-available/000-default.conf \
+&& printf "\n\terrorlog ${apache_log_dir}/error.log\n\tcustomlog ${apache_log_dir}/access.log combined\n" >> /etc/apache2/sites-available/000-default.conf \
+&& printf "\n</virtualhost>" >> /etc/apache2/sites-available/000-default.conf \
+&& chmod -R 644 /etc/apache2/sites-available/000-default.conf \
+&& service apache2 restart
 # configuração php.ini
 RUN chmod +x /etc/php/7.2/apache2/php.ini \
 && echo "error_log =/tmp/php_errors.log" >> /etc/php/7.2/apache2/php.ini \
