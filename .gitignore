@@ -1,1 +1,6 @@
-# Created by .ignore support plugin (hsz.mobi)
+ubuntu18-php7.2-apache-laravel/app*
+.idea/**/workspace.xml
+.idea/**/dbnavigator.xml
+.gitignore
+.idea/sonarlint/
+.idea/vcs.xml
