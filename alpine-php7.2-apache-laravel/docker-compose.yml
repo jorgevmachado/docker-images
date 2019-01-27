@@ -1,0 +1,11 @@
+version: '3.5'
+services:
+  alpine:
+    container_name: alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 189:80
+    volumes:
+      - ./public:/app/public
