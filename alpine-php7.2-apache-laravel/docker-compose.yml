@@ -8,4 +8,4 @@ services:
     ports:
       - 189:80
     volumes:
-      - ./public:/app/public
+      - ./alpine:/app/public
