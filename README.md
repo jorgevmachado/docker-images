@@ -9,3 +9,8 @@
    - php7.2
    - Apache
    - Laravel
+   
+### 3- alpine-php7.2-oci8-apache - size 429MB
+   - php7.2
+   - Apache
+   - oci8
