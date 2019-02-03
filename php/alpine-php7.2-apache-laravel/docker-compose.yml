@@ -1,11 +1,11 @@
 version: '3.5'
 services:
-  alpine-oci:
-    container_name: alpine-oci
+  alpine:
+    container_name: alpine
     build:
-      context: .
+      context: ""
       dockerfile: Dockerfile
     ports:
-      - 190:80
+      - 189:80
     volumes:
       - ./alpine:/app/public

@@ -78,9 +78,9 @@ RUN apk add             \
 RUN cp /usr/bin/php7 /usr/bin/php \
 && rm -f /var/cache/apk/*
 # Instalando o instantclient da oracle
-ADD ../instantclient /tmp/
-ADD ../instantclient /tmp/
-ADD ../instantclient /tmp/
+ADD ../../config/instantclient /tmp/
+ADD ../../config/instantclient /tmp/
+ADD ../../config/instantclient /tmp/
 ENV LD_LIBRARY_PATH /usr/local/instantclient
 RUN unzip -o /tmp/instantclient-basic-linux.x64-12.2.0.1.0.zip -d /usr/local/  \
 && unzip -o /tmp/instantclient-sdk-linux.x64-12.2.0.1.0.zip -d /usr/local/     \
